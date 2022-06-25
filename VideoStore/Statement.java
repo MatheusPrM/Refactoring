@@ -1,8 +1,12 @@
 import java.util.Enumeration;
 
-public class Statement {
+public abstract class Statement {
 
-   public String value(Customer aCustomer) {
+  protected abstract String getPrologue(Customer aCustomer);
+  protected abstract String getFigures(Rental aRental);
+  protected abstract String getEpilogue(Customer aCustomer);
+
+  public String value(Customer aCustomer) {
     Enumeration rentals = aCustomer.getRentals();
     String result = getPrologue(aCustomer);
 
